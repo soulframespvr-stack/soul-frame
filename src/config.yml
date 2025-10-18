@@ -1,0 +1,39 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "products"
+    label: "Products"
+    folder: "src/products"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Subtitle", name: "subtitle", widget: "string" }
+      - { label: "Price", name: "price", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Image", name: "image", widget: "image" }
+
+  - name: "gallery"
+    label: "Gallery"
+    folder: "src/gallery"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Image", name: "src", widget: "image" }
+      - { label: "Alt Text", name: "alt", widget: "string" }
+
+  - name: "siteinfo"
+    label: "Site Information"
+    files:
+      - file: "src/siteinfo.json"
+        label: "Contact & General"
+        name: "contact"
+        fields:
+          - { label: "Instagram Handle", name: "instagram", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Phone", name: "phone", widget: "string", required: false }
